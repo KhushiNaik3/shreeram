@@ -1,0 +1,452 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>responsive Image Gallery</title>
+    <link rel="stylesheet" href="{% static 'css/History.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+</head>
+<style>
+   /* Base styles for responsiveness */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    background-color: #ddd;
+    padding-top: 60px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.gallery {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-auto-rows: 200px;
+    grid-auto-flow: dense;
+}
+
+.gallery > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gallery > div > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.gallery .tall {
+    grid-row: span 2;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        grid-auto-rows: 150px;
+    }
+
+    .gallery > div > img {
+        border-radius: 3px;
+    }
+
+    /* Adjust the height of tall images for smaller screens */
+    .gallery .tall {
+        grid-row: span 1;
+    }
+
+    /* Scroll-to-top button size adjustment for smaller screens */
+    #scrollToTop {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+}
+
+/* The Modal (lightbox) */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+/* Lightbox content (the image) */
+.lightbox-content {
+    margin: auto;
+    display: block;
+    max-width: 80%;
+    max-height: 80%;
+}
+
+/* The close button */
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.3s;
+    user-select: none;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.next {
+    right: 0;
+}
+
+.prev {
+    left: 0;
+}
+
+/* Hide buttons if not hovered */
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Responsive image for lightbox */
+@media screen and (max-width: 768px) {
+    .lightbox-content {
+        max-width: 90%;
+        max-height: 90%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        grid-auto-rows: 100px;
+    }
+
+    .gallery > div > img {
+        border-radius: 2px;
+    }
+
+    /* Scroll-to-top button size for very small screens */
+    #scrollToTop {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+    }
+}
+
+/* Scroll-to-top button */
+#scrollToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #8B4513;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    cursor: pointer;
+    display: none;
+}
+
+</style>
+<body>
+
+<!-- Header -->
+<header class="kalaram-header">
+    <div class="kalaram-container">
+        <div class="kalaram-row">
+            <div class="kalaram-logo">
+                <a href="#">Kalaram Mandir</a>
+            </div>
+            <input type="checkbox" id="kalaram-nav-check">
+            <label for="kalaram-nav-check" class="kalaram-nav-toggler">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <nav class="kalaram-nav">
+                <ul>
+                    <li><a href="/" class="kalaram-active">Home</a></li>
+                    <li><a href="{% url 'events' %}">Events</a></li>
+                    <li><a href="{% url 'history' %}">History</a></li>
+                    <li><a href="{% url 'puja' %}">Pooja & Abhishek</a></li>
+                    <li><a href="#footer">Contact</a></li>
+                    <li><a href="{% url 'donation' %}">Donation</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+
+
+    <div class="gallery">
+        <div class="image-container">
+            <img src="{% static 'Images/5.jpg' %}">
+        </div>
+        <div class="image-container">
+            <img src="{% static 'Images/6.jpg' %}">
+        </div>
+        <div class="image-container tall">
+            <img src="{% static 'Images/4.jpg' %}">
+        </div>
+        <div class="image-container">
+            <img src="{% static 'Images/swami.jpeg' %}">
+        </div>
+        <div class="image-container">
+            <img src="{% static 'Images/17.jpg' %}">
+        </div>
+        <div class="image-container tall">
+            <img src="{% static 'Images/12.jpg' %}">
+        </div>
+        <div class="image-container">
+            <img src="{% static 'Images/18.jpeg' %}">
+        </div>
+        <div class="image-container">
+            <img src="{% static 'Images/19.jpeg' %}">
+        </div>
+        <div class="image-container">
+            <img src="{% static 'Images/20.jpeg' %}">
+        </div>
+        <div class="image-container">
+            <img src="{% static 'Images/baal.jpeg' %}">
+        </div>
+        <div class="image-container tall">
+            <img src="{% static 'Images/3.jpg' %}">
+        </div>
+        <div class="image-container tall">
+            <img src="{% static 'Images/22.jpeg' %}">
+        </div>
+        <div class="image-container">
+            <img src="{% static 'images/dattapalakhi.jpeg' %}">
+        </div>
+        <div class="image-container">
+            <img src="{% static 'images/shivalay-kalaram-temple.avif' %}">
+        </div>
+        <div class="image-container tall">
+            <img src="{% static 'Images/ramnavmi.jpeg' %}">
+        </div>
+        <div class="image-container tall">
+            <img src="{% static 'images/datta.jpeg' %}">
+        </div>
+        <div class="grid-item">
+            <img src="{% static 'images/24.jpeg' %}">
+        </div>
+        <div class="image-container tall">
+            <img src="{% static 'images/dattpalakhi 3.jpeg' %}">
+        </div>
+        <div class="image-container tall">
+            <img src="{% static 'images/devi.jpeg' %}">
+        </div>
+        <div class="image-container tall">
+            <img src="{% static 'images/devotees.jpeg' %}">
+        </div>
+        <div class="image-container">
+            <img src="{% static 'images/fullram.jpeg' %}">
+        </div>
+        <div class="image-container tall">
+            <img src="{% static 'images/saptah.jpeg' %}">
+        </div>
+        <div class="image-container">
+            <img src="{% static 'images/haldikumku2.jpeg' %}">
+        </div>
+        <div class="image-container">
+            <img src="{% static 'images/palakhi.jpeg' %}">
+        </div>
+        <div class="image-container">
+            <img src="{% static 'images/haldikumku.jpeg' %}">
+        </div>
+        <div class="image-container">
+            <img src="{% static 'images/a1.jpeg' %}">
+        </div>
+        <div class="image-container">
+            <img src="{% static 'images/a2.jpeg' %}">
+        </div>
+        <div class="image-container">
+            <img src="{% static 'images/a3.jpeg' %}">
+        </div>
+        <div class="image-container">
+            <img src="{% static 'images/m1.jpeg' %}">
+        </div>
+        <div class="image-container">
+            <img src="{% static 'images/m2.jpeg' %}">
+        </div>
+        <div class="image-container">
+            <img src="{% static 'images/m3.jpeg' %}">
+        </div>
+        <div class="image-container">
+            <img src="{% static 'images/m4.jpeg' %}">
+        </div>
+        <div class="image-container">
+            <img src="{% static 'images/m5.jpeg' %}">
+        </div>
+        <div class="image-container">
+            <img src="{% static 'images/m6.jpeg' %}">
+        </div>
+        <div class="image-container">
+            <img src="{% static 'images/m7.jpeg' %}">
+        </div>
+        <div class="image-container">
+            <img src="{% static 'images/m8.jpeg' %}">
+        </div>
+        <div class="image-container">
+            <img src="{% static 'images/m9.jpeg' %}">
+        </div>
+        <div class="image-container">
+            <img src="{% static 'images/m10.jpeg' %}">
+        </div>
+        <div class="image-container">
+            <img src="{% static 'images/m11.jpeg' %}">
+        </div>
+    </div>
+
+
+    <!-- Lightbox/Modal for full-screen image display -->
+<div id="lightbox" class="lightbox">
+    <span class="close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+    <a class="prev" onclick="changeImage(-1)">&#10094;</a>
+    <a class="next" onclick="changeImage(1)">&#10095;</a>
+</div>
+
+    <button id="scrollToTop" title="Go to top">↑</button>
+
+    <!-- footer -->
+    <section  id="footer" class="footer">
+        <footer>
+    
+            <div class="container">
+                <div class="footer-content">
+                    <h3>Contact Us</h3>
+                    <p>Email: absrammandir@gmail.com</p>
+                    <p>Phone: +91 9819001832</p>
+                    <p>Address: 309-E, JSS Road, Thakurdwar, Mumbai-400002</p>
+                </div>
+                <div class="footer-content">
+                    <h3>Quick Links</h3>
+                    <ul class="list">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="{% url 'events' %}">Events</a></li>
+                        <li><a href="{% url 'history' %}">History</a></li>
+                        <li><a href="{% url 'puja' %}">Pooja </a></li>
+                        <li><a href="{% url 'donation' %}">Donation</a></li>
+                    </ul>
+                </div>
+            
+            </div>
+            <div class="bottom-bar">
+                <p>&copy; 2024 Atmaram Bawa's Shree Ram Mandir. All rights reserved.</p>
+                <p>Designed by - Sanjana and Khushi Naik</p>
+            </div>
+        </footer>
+    </section> 
+    
+  
+    <button id="scrollToTop" title="Go to top">↑</button>
+  <script>
+    let currentImageIndex = 0;
+const images = document.querySelectorAll('.gallery img');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+
+// Open lightbox when an image is clicked
+images.forEach((img, index) => {
+    img.addEventListener('click', function() {
+        lightbox.style.display = 'block';
+        lightboxImg.src = this.src;
+        currentImageIndex = index;
+    });
+});
+
+// Close the lightbox
+const closeLightbox = document.querySelector('.close');
+closeLightbox.addEventListener('click', function() {
+    lightbox.style.display = 'none';
+});
+
+// Navigate to next or previous image
+function changeImage(direction) {
+    currentImageIndex += direction;
+
+    if (currentImageIndex < 0) {
+        currentImageIndex = images.length - 1;  // Go to last image if at the first one
+    } else if (currentImageIndex >= images.length) {
+        currentImageIndex = 0;  // Go to first image if at the last one
+    }
+
+    lightboxImg.src = images[currentImageIndex].src;
+}
+
+// Close lightbox if clicked outside the image
+window.onclick = function(event) {
+    if (event.target == lightbox) {
+        lightbox.style.display = "none";
+    }
+};
+
+  </script>
+  
+</body>
+<script>
+//     function openModal(imageSrc) {
+//     const modal = document.getElementById("modal");
+//     const modalImage = document.getElementById("modalImage");
+
+//     modal.style.display = "block";
+//     modalImage.src = imageSrc;
+// }
+
+// function closeModal() {
+//     const modal = document.getElementById("modal");
+//     modal.style.display = "none";
+// }
+
+const scrollToTopButton = document.getElementById("scrollToTop");
+  
+  window.onscroll = function() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          scrollToTopButton.style.display = "block";
+      } else {
+          scrollToTopButton.style.display = "none";
+      }
+  };
+
+  scrollToTopButton.onclick = function() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+  };
+</script>
+</html>

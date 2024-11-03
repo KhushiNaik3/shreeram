@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>footer</title>
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+</head>
+<body>
+
+
+    <!-- footer -->
+    <section  id="footer" class="footer">
+        <footer>
+    
+            <div class="container">
+                <div class="footer-content">
+                    <h3>Contact Us</h3>
+                    <p>Email: absrammandir@gmail.com</p>
+                    <p>Phone: +91 9819001832</p>
+                    <p>Address: 309-E, JSS Road, Thakurdwar, Mumbai-400002</p>
+                </div>
+                <div class="footer-content">
+                    <h3>Quick Links</h3>
+                    <ul class="list">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="{% url 'events' %}">Events</a></li>
+                        <li><a href="{% url 'history' %}">History</a></li>
+                        <li><a href="{% url 'puja' %}">Pooja </a></li>
+                        <li><a href="{% url 'donation' %}">Donation</a></li>
+                    </ul>
+                </div>
+            
+            </div>
+            <div class="bottom-bar">
+                <p>&copy; 2024 Atmaram Bawa's Shree Ram Mandir. All rights reserved.</p>
+                <p>Designed by - Sanjana and Khushi Naik</p>
+            </div>
+        </footer>
+    </section> 
+    
+</body>
+</html>

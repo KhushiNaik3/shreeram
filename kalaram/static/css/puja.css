@@ -1,0 +1,365 @@
+ /* Global Styles */
+ * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --color-1: #FF7D29;
+    --color-2: #FEFFD2;
+    --color-3: #4A4A4A;
+    --transition: all 0.3s ease-in-out;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f1ea;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23f2e8c9"/><path d="M0 0h100v100H0z" fill="%23d3c7a7" fill-opacity="0.1"/></svg>');
+    margin: 0;
+    padding: 0;
+}
+
+/* Container Styles */
+.container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    background-color: #fff9e6;
+    padding: 2rem;
+    border: 2px solid #8b7d6b;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border: 1px solid #8b7d6b;
+    pointer-events: none;
+}
+
+/* Heading Styles */
+h1, h2, h3 {
+    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+    color: #5c4033;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 2.5em;
+    border-bottom: 2px solid #8b7d6b;
+    padding-bottom: 0.5rem;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+h3 {
+    font-size: 1.5em;
+    font-style: italic;
+}
+
+p {
+    text-align: justify;
+    margin-bottom: 1rem;
+}
+
+/* Table Styles */
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+th, td {
+    border: 1px solid #8b7d6b;
+    padding: 0.75rem;
+    text-align: left;
+}
+
+th {
+    background-color: #d3c7a7;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f8f1e0;
+}
+
+/* Ornament and Footer Note */
+.ornament {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #8b7d6b;
+    margin: 1rem 0;
+}
+
+.footer-note {
+    text-align: center;
+    font-style: italic;
+    margin-top: 1.5rem;
+    color: #8b7d6b;
+}
+
+.kalaram-header {
+    background-color: var(--color-1);
+    padding: 15px 0;
+    position: relative;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.kalaram-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.kalaram-logo a {
+    font-size: 28px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: var(--transition);
+}
+
+.kalaram-nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.kalaram-nav ul li {
+    margin-left: 20px;
+}
+
+.kalaram-nav ul li a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: var(--transition);
+    padding: 10px 0;
+    position: relative;
+}
+
+.kalaram-nav ul li a:hover,
+.kalaram-nav ul li a.kalaram-active {
+    color: #ffffff;
+}
+
+.kalaram-nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #ffffff;
+    transition: var(--transition);
+}
+
+.kalaram-nav ul li a:hover::after,
+.kalaram-nav ul li a.kalaram-active::after {
+    width: 100%;
+}
+
+#kalaram-nav-check,
+.kalaram-nav-toggler {
+    display: none;
+}
+
+@media (max-width: 991px) {
+    .kalaram-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .kalaram-nav-toggler {
+        display: block;
+        cursor: pointer;
+    }
+
+    .kalaram-nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--color-1);
+        max-height: 0;
+        overflow: hidden;
+        transition: var(--transition);
+    }
+
+    .kalaram-nav ul {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .kalaram-nav ul li {
+        margin: 0;
+        text-align: center;
+        padding: 15px 0;
+    }
+
+    .kalaram-nav-toggler span {
+        display: block;
+        width: 30px;
+        height: 2px;
+        background-color: #ffffff;
+        margin: 6px 0;
+        transition: var(--transition);
+    }
+
+    #kalaram-nav-check:checked ~ .kalaram-nav {
+        max-height: 100vh;
+    }
+
+    #kalaram-nav-check:checked ~ .kalaram-nav-toggler span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    #kalaram-nav-check:checked ~ .kalaram-nav-toggler span:nth-child(2) {
+        opacity: 0;
+    }
+
+    #kalaram-nav-check:checked ~ .kalaram-nav-toggler span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+    }
+}
+
+
+/* Fix for full-width footer */
+.footer {
+    padding: 20px 0;
+    width: 100%;
+    background-color: #f8f1e0; /* Match footer bg color */
+}
+
+.footer .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer .footer-container div {
+    width: 30%; /* Example division, adjust as per need */
+    margin-bottom: 20px;
+}
+
+.footer .footer-content p {
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+}
+.footer-content p, .footer-content ul {
+    text-align: center;
+margin: 10px 0;
+font-size: 14px;
+}
+
+.footer-content ul {
+list-style-type: none;
+padding: 0;
+}
+
+.footer-content a {
+text-decoration: none;
+color: #4A4A4A;
+transition: color 0.3s ease;
+}
+
+.footer-content a:hover {
+color: #FF7D29;
+}
+
+
+.bottom-bar p {
+    background: #FF7D29;
+    text-align: center;
+    padding: 10px 0;
+    color: #fff;
+    font-size: 14px;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 991px) {
+    .kalaram-nav-toggler {
+        display: block;
+        cursor: pointer;
+    }
+
+    .kalaram-nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #FF7D29;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
+    }
+
+    .kalaram-nav ul {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .kalaram-nav ul li {
+        margin: 0;
+        text-align: center;
+        padding: 15px 0;
+    }
+
+    .kalaram-nav-toggler span {
+        display: block;
+        width: 30px;
+        height: 2px;
+        background-color: #ffffff;
+        margin: 6px 0;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    #kalaram-nav-check:checked ~ .kalaram-nav {
+        max-height: 100vh;
+    }
+
+    #kalaram-nav-check:checked ~ .kalaram-nav-toggler span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    #kalaram-nav-check:checked ~ .kalaram-nav-toggler span:nth-child(2) {
+        opacity: 0;
+    }
+
+    #kalaram-nav-check:checked ~ .kalaram-nav-toggler span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    .footer-content {
+        flex-basis: 100%;
+    }
+}

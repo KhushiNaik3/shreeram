@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ancient Temple of Wisdom</title>
+    <link rel="stylesheet" href="{% static 'css/projects.css' %}">
+
+</head>
+<body>
+    <header>
+        <h1>Future projects</h1>
+    </header>
+
+    <!-- <button id="theme-toggle">🕯️</button> -->
+
+    <div class="container">
+        <div class="temple-section">
+            <div class="temple-content">
+                <h2>The Sacred Hall of Meditation</h2>
+                <p>Step into our timeless sanctuary, where centuries of spiritual enlightenment resonate within ancient walls. Experience profound peace and connect with the wisdom of the ages.</p>
+                <a href="#" class="sacred-button">Enter the Hall</a>
+            </div>
+        </div>
+
+        <div class="temple-section">
+            <div class="temple-content">
+                <h2>The Divine Garden of Reflection</h2>
+                <p>Wander through our meticulously preserved gardens, where each plant and stone holds secrets of the universe. Find harmony and insight amidst nature's timeless beauty.</p>
+                <a href="#" class="sacred-button">Explore the Gardens</a>
+            </div>
+        </div>
+
+        <div class="temple-section">
+            <div class="temple-content">
+                <h2>The Celestial Observatory</h2>
+                <p>Gaze upon the heavens from our ancient astronomical tower. Uncover the mysteries of the cosmos and your place within it, guided by age-old wisdom and modern understanding.</p>
+                <a href="#" class="sacred-button">Observe the Stars</a>
+            </div>
+        </div>
+
+        <div class="offerings">
+            <h2>Sacred Offerings</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Devotee</th>
+                        <th>Offering</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Sage Amara</td>
+                        <td>Golden Lotus Flower</td>
+                    </tr>
+                    <tr>
+                        <td>Elder Raj</td>
+                        <td>Sandalwood Incense</td>
+                    </tr>
+                    <tr>
+                        <td>Priestess Lila</td>
+                        <td>Crystal Healing Bowl</td>
+                    </tr>
+                    <tr>
+                        <td>Monk Daichi</td>
+                        <td>Ancient Scrolls of Wisdom</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-theme');
+            themeToggle.textContent = body.classList.contains('dark-theme') ? '☀️' : '🕯️';
+        });
+
+        const templeSections = document.querySelectorAll('.temple-section');
+        templeSections.forEach(section => {
+            section.addEventListener('mouseenter', () => {
+                section.style.transform = 'scale(1.02)';
+                section.style.transition = 'transform 0.3s ease';
+            });
+
+            section.addEventListener('mouseleave', () => {
+                section.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>

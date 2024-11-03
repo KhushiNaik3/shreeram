@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puja Details</title>
+    <link rel="stylesheet" href="{% static 'css/puja.css' %}">
+</head>
+<body>
+    <header class="kalaram-header">
+        <div class="kalaram-container">
+            <div class="kalaram-logo">
+                <a href="#">Kalaram Mandir</a>
+            </div>
+            <input type="checkbox" id="kalaram-nav-check">
+            <label for="kalaram-nav-check" class="kalaram-nav-toggler">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <nav class="kalaram-nav">
+                <ul>
+                    <li><a href="/" class="kalaram-active">Home</a></li>
+                  <li><a href="{% url 'events' %}">Events</a></li>
+                  <li><a href="{% url 'history' %}">History</a></li>
+                  <li><a href="{% url 'puja' %}">Pooja & Abhishek</a></li>
+                  <li><a href="#footer">Contact</a></li>
+                  <li><a href="{% url 'donation' %}">Donation</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1>॥ Puja Details ॥</h1>
+        
+        <div class="ornament">☸ ☸ ☸</div>
+        
+        <h2>Temple Services</h2>
+        
+        <h3>Puja Booking Timings</h3>
+        <p>Morning: 7:00 AM to 12:00 Noon<br>Evening: 5:00 PM to 9:00 PM</p>
+        
+        <p>We wish to inform all devotees that online payments for puja bookings are not accepted.</p>
+        <p>If you wish to book a puja, please visit the temple in person. You may contact our priest and request a receipt for your booking upon making the necessary payment.</p>
+        
+        <div class="ornament">✿ ✿ ✿</div>
+        
+        <div class="table-container">
+            <table>
+                <tr>
+                    <th>Types of Pujas</th>
+                    <th>Amount (in Rupees)</th>
+                </tr>
+                <tr>
+                    <td>Ekadashi / Abhishek</td>
+                    <td>101/-</td>
+                </tr>
+                <tr>
+                    <td>Laghurudra</td>
+                    <td>5,000/-</td>
+                </tr>
+                <tr>
+                    <td>Satyanarayana Puja</td>
+                    <td>3,000/-</td>
+                </tr>
+                <tr>
+                    <td>Pavamana Avartan</td>
+                    <td>500/-</td>
+                </tr>
+                <tr>
+                    <td>Laghuvishnu</td>
+                    <td>6,500/-</td>
+                </tr>
+                <tr>
+                    <td>Mahapuja</td>
+                    <td>500/-</td>
+                </tr>
+            </table>
+        </div>
+    
+        <div class="ornament">॥ OM ॥</div>
+        
+        <div class="footer-note">
+            Perform puja with faith and devotion, and receive blessings of happiness and prosperity
+        </div>
+    </main>
+
+    <footer id="footer" class="footer">
+        <div class="footer-container">
+            <div class="footer-content" >
+                <h3>Contact Us</h3>
+                <p>Email: absrammandir@gmail.com</p>
+                <p>Phone: +91 9819001832</p>
+                <p>Address: 309-E, JSS Road, Thakurdwar, Mumbai-400002</p>
+            </div>
+            <div class="footer-content">
+                <h3>Quick Links</h3>
+                <ul class="list">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="{% url 'events' %}">Events</a></li>
+                    <li><a href="{% url 'history' %}">History</a></li>
+                    <li><a href="{% url 'gallary' %}">Gallery</a></li>
+                    <li><a href="{% url 'puja' %}">Pooja </a></li>
+                    <li><a href="{% url 'donation' %}">Donation</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="bottom-bar">
+            <p>&copy; 2024 Atmaram Bawa's Shree Ram Mandir. All rights reserved.</p>
+            <p>Designed by - Sanjana and Khushi Naik</p>
+        </div>
+    </footer>
+</body>
+</html>

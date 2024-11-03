@@ -1,0 +1,226 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalarama Temple</title>
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/events.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+
+</head>
+<body>
+
+<!-- Header -->
+<!-- Header -->
+<header class="kalaram-header">
+    <div class="kalaram-container">
+        <div class="kalaram-row">
+            <div class="kalaram-logo">
+                <!-- Add Logo Image Here -->
+                <a href="#">
+                    <img src="{% static 'images/logo1.png' %}" alt="Logo" class="kalaram-logo-img">
+                    Kalaram Mandir
+                </a>
+            </div>
+            <input type="checkbox" id="kalaram-nav-check">
+            <label for="kalaram-nav-check" class="kalaram-nav-toggler">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <nav class="kalaram-nav">
+                <ul>
+                    <li><a href="/" class="kalaram-active">Home</a></li>
+                    <li><a href="{% url 'events' %}">Events</a></li>
+                    <li><a href="{% url 'history' %}">History</a></li>
+                    <li><a href="{% url 'puja' %}">Pooja & Abhishek</a></li>
+                    <li><a href="#footer">Contact</a></li>
+                    <li><a href="{% url 'donation' %}">Donation</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+  <!-- header -->
+   
+  <div class="container">
+    <h1>Temple Events 2024-25</h1>
+    <div id="events-container">
+        <!-- Events will be dynamically inserted here -->
+    </div>
+</div>
+<button id="scrollToTop" title="Go to top">↑</button>
+
+    <!-- footer -->
+    <section  id="footer" class="footer">
+        <footer>
+    
+            <div class="container">
+                <div class="footer-content">
+                    <h3>Contact Us</h3>
+                    <p>Email: absrammandir@gmail.com</p>
+                    <p>Phone: +91 9819001832</p>
+                    <p>Address: 309-E, JSS Road, Thakurdwar, Mumbai-400002</p>
+                </div>
+                <div class="footer-content">
+                    <h3>Quick Links</h3>
+                    <ul class="list">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="{% url 'events' %}">Events</a></li>
+                        <li><a href="{% url 'history' %}">History</a></li>
+                        <li><a href="{% url 'gallary' %}">Gallary</a></li>
+                        <li><a href="{% url 'puja' %}">Pooja </a></li>
+                        <li><a href="{% url 'donation' %}">Donation</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="bottom-bar">
+                <p>&copy; 2024 Atmaram Bawa's Shree Ram Mandir. All rights reserved.</p>
+                <p>Designed by - Sanjana and Khushi Naik</p>
+            </div>
+        </footer>
+    </section> 
+
+
+
+<script>
+            const events = [
+                {
+                    name: "रामनवमी (Ram Navami)",
+                    date: "April 17, 2024 (चैत्र शुक्ल नवमी)",
+                    description: "रामजन्मोत्सव हा उत्सव सकाळी १०:३० ते १:०० दरम्यान हरिकीर्तनाने सुरू होतो, आणि दुपारी १२:३९ वाजता रामजन्माचा विशेष क्षण साजरा केला जातो. या वेळी पाळणा आणि इतर धार्मिक विधी पार पडतात. संध्याकाळी ५:०० ते १०:०० या वेळेत भक्तांना श्रीराम बाळाचे दर्शन मिळते आणि प्रसाद वितरित केला जातो.",
+                    image: "/static/images/24.jpeg"
+                },
+                {
+                    name: "हनुमानजयंती (Hanuman Jayanti)",
+                    date: "April 23, 2024 (चैत्र पौर्णिमा)",
+                    description: "हनुमान जयंती पहाटे ५:३० ते ७:०० या वेळेत भक्तिभावाने हरिकीर्तनाच्या माध्यमातून साजरी केली जाते.",
+                    image: "/static/images/4.jpg"
+                },
+                {
+                    name: "अक्कलकोट श्रीस्वामीसमर्थ अखंडनाम सप्ताह",
+                    date: "May 5-12, 2024 (चैत्र कृष्ण त्रयोदशी)",
+                    description: "श्री स्वामी समर्थ महाराजांच्या पुण्यतिथीच्या आसपास श्री स्वामी समर्थ अखंड नाम सप्ताह उत्सव अतिशय भक्तिभावाने साजरा केला जातो. सकाळी ९:०० वाजता अखंड नामाचा प्रारंभ होतो. हा उत्सव रविवार ते रविवार असतो, आणि या काळात -|| महाराज श्रीगुरु स्वामी समर्थ जय जय स्वामी समर्थ || श्री स्वामी समर्थ जय जय स्वामी समर्थ ||- या नामाचा अखंड गजर मोठ्या श्रद्धेने होत असतो. भक्तगण या उत्सवात सामील होऊन श्री स्वामी समर्थांच्या चरणी आपली भक्ती व्यक्त करतात, आणि अखंड नामस्मरणाने वातावरण भक्तिमय बनलेले असते. पुण्यतिथीच्या दिवशी आरती आणि पालखी मिरवणूक सोहळा साजरा केला जातो. दररोज रात्री ९:०० वाजता आरतीनंतर प्रसादवाटप होते. अंतिम दिवशी, सकाळी ९:०० वाजता अखंड नाम सप्ताहाचा शेवट होऊन आरती व भजन सुरू होते, आणि दुपारी १२:०० वाजता महाप्रसाद वितरित केला जातो.",
+                    image: "/static/images/saptah.jpeg"
+                },
+                {
+                    name: "श्री दत्तमूर्ति स्थापनादिन (Shrre Dattamurti Sthapana Din)",
+                    date: "June 10, 2024 (ज्येष्ठ कृष्ण अष्टमी)",
+                    description: "दत्तमुर्ती स्थापना कृष्णपक्ष अष्टमीला लघुरुद्रविष्णु पूजेसह केली जाते.",
+                    image: "/static/images/12.jpg"
+                },
+                {
+                    name: "गुरुपौर्णिमा (Gurupaurnima)",
+                    date: "July 21, 2024 (आषाढ शुक्ल पक्ष पौर्णिमेला)",
+                    description: "रात्री गुरुवार प्रमाणे आरती आणि पालखी सोहळा पार पडतो. या सोहळ्यानंतर प्रसाद वाटप देखील केलं जातं.",
+                    image: "/static/images/palakhi.jpeg"
+                },
+            
+                {
+                    name: "श्रावणी सोमवार (Shravani Somavar)",
+                    date: " दर सोमवारी (श्रावण)",
+                    description: "दर सोमवारी घुमटातील शिवलिंग सकाळी ७:०० ते रात्री ९:०० वाजेपर्यंत दर्शनासाठी खुले असते.",
+                    image: "/static/images/20.jpeg"
+                },
+                {
+                    name: "श्री आत्मारामबुवांची पुण्यतिथि (Shree Atmaram Bawa's Punyatithi)",
+                    date: "August 6, 2024 (श्रावण कृष्ण सप्तमी)",
+                    description: "या दिवशी श्री आत्माराम बुवा पुण्यतिथी साजरी केली जाते. समाधीच्या सजावटीसह पूजा पार पडते, आणि सायंकाळी ५:०० ते ८:०० दरम्यान हरिकीर्तन होतं. त्यानंतर प्रसादवाटप केला जातो.",
+                    image: "/static/images/samadhi.jpeg"
+                },
+                {
+                    name: "गोकुळाष्टमी (Gokul Ashtami/Krishna Janmashtami)",
+                    date: "August 26, 2024 (भाद्रपद कृष्ण अष्टमी)",
+                    description: "श्रावण कृष्णपक्ष अष्टमीला श्रीकृष्ण जयंती उत्साहात साजरी केली जाते. रात्री १०:३० ते १:०० या वेळेत कृष्णजन्म हरिकीर्तन होते. १२:३९ वाजता श्रीकृष्णाचा जन्म उत्सव साजरा केला जातो, पाळणा विधी पार पडतो आणि नंतर सुंठवडा प्रसाद वाटला जातो. दुसऱ्या दिवशी सायंकाळी ५:०० ते ८:०० हरीकीर्तनाचे आयोजन असते, त्यानंतर काल्याचा प्रसाद भक्तांना वितरित केला जातो.",
+                    image: "/static/images/baal.jpeg"
+                },
+                {
+                    name: "श्रीरामपंचायतन स्थापनादिन (Shree Rampanchaytan Sthapana Din)",
+                    date: "September 15, 2024 (भाद्रपद शुक्ल द्वादशी)",
+                    description: "श्री राम पंचायातन प्रतिष्ठापनाच्या आणि मंदिराच्या वर्धापन दिनानिमित्त लघुरुद्र पूजा आणि प्रसाद वाटप केला जातो. या दिवशी, भक्तगण श्री राम पंचायातनच्या प्रतिष्ठेचा उत्सव साजरा करतात, पूजा विधी पार पडतात.",
+                    image: "/static/images/shreeram.jpeg"
+                },
+                {
+                    name: "नवरात्र (Navaratri)",
+                    date: " October 3-11, 2024",
+                    description: "Nine nights dedicated to the Divine Mother. नवरात्र उत्सव शुक्लपक्ष १ ला देवीची घटस्थापना करून साजरा केला जातो. या दिवशी देवीच्या मूर्तीसमोर समया आणि माळांची सजावट केली जाते. ललिता पंचमीला, सायंकाळी ५:०० ते ९:०० या वेळेत हळदीकुंकू समारंभ पार पडतो, ज्यामध्ये महिलांनी देवीची पूजा करावी, आणि त्यानंतर भक्तिपूर्ण वातावरणात आरती होते.",
+                    image: "/static/images/devi.jpeg"
+                },
+                {
+                    name: "कोजागिरी पौर्णिमा (Kojagiri Paurnima)",
+                    date: "October 16, 2024 (शरद पौर्णिमा)",
+                    description: " सायंकाळी ५:०० ते ८:०० या वेळेत प्रवचन पार पडते, ज्यात भक्तांना धार्मिक मार्गदर्शन मिळतं. त्यानंतर गुरुवार प्रमाणे आरती होते आणि पालखी सोहळा मोठ्या उत्साहाने साजरा केला जातो.",
+                    image: "/static/images/dattpalakhi 3.jpeg"
+                },
+                {
+                    name: "त्रिपुरारी पौर्णिमा (Tripurari Paurnima)",
+                    date: "November 15, 2024 (कार्तिक पौर्णिमा)",
+                    description: "देवळाजवळील दीपमाळ सायंकाळी साडेसातच्या सुमारास दिव्यांनी प्रज्वलित केली जाते, ज्यामुळे परिसर पवित्र आणि उजळलेला दिसतो. त्यानंतर भक्तिभावाने आरती पार पडते, ज्यात सर्व भक्तगण सहभागी होऊन देवी-देवतांचे स्तवन करतात.",
+                    image: "/static/images/21.jpeg"
+                },
+                {
+                    name: "वैकुंठ चर्तुदशी (Vaikunth Chaturdashi)",
+                    date: "November 14-15, 2024 (कार्तिक पौर्णिमा)",
+                    description: "रात्री ९:०० ते १२:०० या वेळेत घुमटातील शिवलिंग भक्तांसाठी दर्शनासाठी खुले ठेवले जाते, ज्यामुळे या विशेष काळात भाविकांना शिवलिंगाचे पवित्र दर्शन घेण्याची संधी मिळते.",
+                    image: "/static/images/mahashivratri.jpeg"
+                },
+
+                {
+                    name: "श्रीदत्तजयंती (Dattatreya Jayanti)",
+                    date: "December 16, 2024 (मार्गशीर्ष पौर्णिमा)",
+                    description: "दत्तजयंतीच्या आदल्या दिवशी सायंकाळी ६:३० ते ८:०० दरम्यान प्रवचन आयोजित केले जाते. दत्तजयंतीच्या दिवशी सकाळी ६:०० वाजता पूजा, एकादशनी आणि लघुरुद्र पूजा पार पडतात. दुपारी ११:०० ते ५:३० या वेळेत श्री दत्ताचे हरिकीर्तन होते. सायंकाळी ७:३० वाजता श्रींची आरती केली जाते, त्यानंतर श्रींची पालखी मिरवणूक आणि शेजआरती पार पडतात. रात्री १०:०० वाजेपर्यंत श्रींच्या पादुका दर्शनासाठी भक्त भाविकांना ठेवल्या जातात.",
+                    image: "/static/images/dattpalakhi 2.jpeg"
+                },
+                {
+                    name: "दासनवमी (Das Navami)",
+                    date: "January 5, 2025 (पौष शुक्ल नवमी)",
+                    description: "रामदासनवमीला लघुरुद्र पूजा केली जाते.",
+                    image: "/static/images/datta.jpeg"
+                },
+                {
+                    name: "महाशिवरात्री (Mahashivratri)",
+                    date: "February 26, 2025 (फाल्गुन कृष्ण चतुर्थी)",
+                    description: "महाशिवरात्रीला सकाळी ७:०० ते १०:०० या वेळेत घुमटातील शिवलिंग दर्शनासाठी खुले ठेवले जाते.",
+                    image: "/static/images/shivalayy.jpeg"
+                }
+            ];
+    
+            const eventsContainer = document.getElementById('events-container');
+    
+            events.forEach(event => {
+                const eventElement = document.createElement('div');
+                eventElement.className = 'event';
+                eventElement.innerHTML = `
+                    <h2>${event.name}</h2>
+                    <p class="event-date">${event.date}</p>
+                    <p class="event-description">${event.description}</p>
+                    <img class="event-image" src="${event.image}" alt="${event.name}">
+                `;
+                eventsContainer.appendChild(eventElement);
+            });
+    
+            // Scroll to top functionality
+            const scrollToTopButton = document.getElementById("scrollToTop");
+    
+            window.onscroll = function() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    scrollToTopButton.style.display = "block";
+                } else {
+                    scrollToTopButton.style.display = "none";
+                }
+            };
+    
+            scrollToTopButton.onclick = function() {
+                document.body.scrollTop = 0; // For Safari
+                document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+            };
+</script>
+</body>
+</html>
+ 
+
+
+

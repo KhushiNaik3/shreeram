@@ -1,0 +1,248 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/Home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <title>Home-Kalaram Mandir</title>
+
+</html>
+
+<style>
+    #scrollToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #8B4513;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    cursor: pointer;
+    display: none;
+}
+</style>
+<body >
+<!-- Header -->
+<header class="kalaram-header">
+    <div class="kalaram-container">
+        <div class="kalaram-row">
+            <div class="kalaram-logo">
+                <a href="#">Kalaram Mandir</a>
+            </div>
+            <input type="checkbox" id="kalaram-nav-check">
+            <label for="kalaram-nav-check" class="kalaram-nav-toggler">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <nav class="kalaram-nav">
+                <ul>
+                    <li><a href="/" class="kalaram-active">Home</a></li>
+                    <li><a href="{% url 'events' %}">Events</a></li>
+                    <li><a href="{% url 'history' %}">History</a></li>
+                    <li><a href="{% url 'puja' %}">Pooja & Abhishek</a></li>
+                    <li><a href="#footer">Contact</a></li>
+                    <li><a href="{% url 'donation' %}">Donation</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<button id="scrollToTop" title="Go to top">↑</button>
+
+
+<!-- home -->
+<section id="home" style="background-image: url('/static/images/feedb.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+    <div class="overlay"></div>
+    <div class="content">
+        <h1>आत्माराम बुवांचे श्रीराम मंदिर (काळाराम मंदिर)</h1>
+        <p>स्थापना सन १८२८</p>
+        <h1>श्री स्वामी समर्थ मठ ,ठाकुरद्वार</h1>
+        <p>स्थापना सन १८७०</p>
+        <div class="buttons">
+            <button><a href="#about" style="color: aliceblue;">About our Temple</a></button>
+            <button><a href="{% url 'gallary' %}" style="color: aliceblue;">Gallery</a></button>
+        </div>
+    </div>
+</section>
+
+<script>
+    function scrollToSection(sectionId) {
+        document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+
+<!-- about us -->
+<div class="about" id="about">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="#FEFFD2"><path d="M0 1v99c134.3 0 153.7-99 296-99H0Z" opacity=".5"></path><path d="M1000 4v86C833.3 90 833.3 3.6 666.7 3.6S500 90 333.3 90 166.7 4 0 4h1000Z" opacity=".5"></path><path d="M617 1v86C372 119 384 1 196 1h421Z" opacity=".5"></path><path d="M1000 0H0v52C62.5 28 125 4 250 4c250 0 250 96 500 96 125 0 187.5-24 250-48V0Z"></path></svg>
+           <div class="inner-section">
+        <h1>About Us</h1>
+        <p class="text">
+            Atmaram Bawa's Shree Ram Mandir (Popularly Known as Kalaram Mandir, nearing 200 years):
+            Amidst the fast-changing landscape of Thakurdwar in Mumbai stands the iconic Kalram Mandir, which dates back to the 19th century.
+Atmaram Buwa, a devoted member of the Ramdasi Sampradaya of Shirgaon Math, made significant contributions to the construction of temples in various locations, 
+including Sawantwadi, Goa, and Ahmedabad. In 1828, he arrived in Mumbai and, with the support of his disciples, particularly those from the Pathare Prabhu Community, 
+acquired land on Thakurdwar (now known as J.S.S Road). There, he built Sri Ram Mandir, which was established on Bhadrapada Shukla 12, Shaka 1750, equivalent to September 20, 1828, featuring Shri Ram Panchayatan.
+In 1870, Shri Krishnath Thakurdas Buwa placed the Padukas (sacred sandals) given to him by Shri Swami Samarth Maharaj at a location now known as Dutt Mandir. The temple also houses the idols of Durga Devi, Vithoba Rakhumai, Lord Ganesha, and Shivalinga.</p>
+        <div class="skills">
+            <button><a href="{% url 'history' %}"></a>Know more</button>
+        </div>
+    </div>
+    
+</div>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="#FFEEA9"><path d="M0 0v100c166.7 0 166.7-66 333.3-66S500 77 666.7 77 833.3 28 1000 28V0H0Z" opacity=".5"></path><path d="M0 0v100c166.7 0 166.7-66 333.3-66S500 70 666.7 70 833.3 16 1000 16V0H0Z" opacity=".5"></path><path d="M0 0v100c166.7 0 166.7-66 333.3-66S500 63 666.7 63 833.3 4 1000 4V0H0Z"></path></svg>
+
+
+
+
+<!-- unique things -->
+<div class="unique things"><h1></h1>
+    <div class="abt_container">
+        <!-- Section 1: Cloud Deployment -->
+        <div class="abt_section">
+            <img src="{% static 'Images/shreeram.jpeg' %}" alt="shreearam">
+            <div class="abt_section-content">
+                <h2>श्रीराम पंचायतन</h2>
+                <p>As the name suggests, the temple is carved out of black stone, including all the idols of the deities in the sanctum sanctorum. You can find idols of Lord Ram, Sita, Laxman, Bharat, and Shatrughna, collectively known as Ram Panchayatan. Sita is comfortably ensconced on the lap of Lord Ram.  </p>
+            </div>
+        </div>
+       
+
+        <!-- Section 2: Alpha Generation -->
+        <div class="abt_section alt">
+            <img src="{% static 'Images/shreeswami.jpeg' %}" alt="shivalaya">
+            <div class="abt_section-content">
+                <h2>श्री स्वामी समर्थ महाराज पादुका</h2>
+                <p>Our temple is blessed to possess the Padukas of Sri Swami Samarth Maharaj, which were personally handed over to Sri Krishnath Thakurdas Bua by the Maharaj himself. 
+                    These sacred Padukas are preserved in our temple and are displayed to devotees every Thursday evening and on special occasions.</p>
+            </div>
+        </div>
+        
+
+
+        <!-- Section 3: Strategy Basket -->
+        
+        <div class="abt_section ">
+            <img src="{% static 'Images/mahashivratri.jpeg' %}" alt="kailas bhuvan">
+            <div class="abt_section-content">
+                <h2>कैलास भुवन </h2>
+                <p> A unique feature of this temple is the "temple within the temple"—a sort of secret shrine located directly above the main temple. This small temple houses a Shivling, enclosed from all sides with no ventilation, and has 
+                    only a small opening for entry and exit. The founder of this temple, Atmaram Buwa, used to meditate in front of this Shivling for hours.</p>
+            </div>
+        </div>
+       
+
+        
+        
+    </div>  
+
+</div>
+</section>
+    <button id="scrollToTop" title="Go to top">↑</button>
+<!-- About Section End -->
+
+    <main id="trustees">
+        <h2>विश्वस्त मंडळ</h2>
+        <h3>Our Trustees</h3>
+        <ul>
+            <li>श्री. राजन मोतीराम जयकर<br><span>Shri. Rajan Motiram Jayakar</span></li>
+            <li>श्री. बाळकृष्ण नारायण तळपदे<br><span>Shri. Balkrishna Narayan Talpade</span></li>
+            <li>श्री. मोहन मोतीराम जयकर<br><span>Shri. Mohan Motiram Jayakar</span></li>
+            <li>श्री. प्रदीप श्रीकर राणे<br><span>Shri. Pradeep Shrikar Rane</span></li>
+            <li>श्री. ललित माधवराव कोठारे<br><span>Shri. Lalit Madhavrao Kothare</span></li>
+            <li>श्री. गौतम अशोक वेलकर<br><span>Shri. Gautam Ashok Welkar</span></li>
+            <li>श्री. समीर श्रीकांत रणजित<br><span>Shri. Sameer Shrikant Ranjit</span></li>
+        </ul>
+    </main>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="#FFEEA9"><path d="M0 0h1000v4H0z"></path><path d="M0 0h1000v80.8S550 100 500 100 0 80.8 0 80.8V0Z" opacity=".2"></path><path d="M0 0h1000v61.6S600 100 500 100 0 61.6 0 61.6V0Z" opacity=".3"></path><path d="M0 0h1000v42.4S650 100 500 100 0 42.4 0 42.4V0Z" opacity=".4"></path><path d="M0 0h1000v23.2S700 100 500 100 0 23.2 0 23.2V0Z" opacity=".5"></path><path d="M0 0v4s250 96 500 96 500-96 500-96V0H0Z"></path></svg>
+    <section id="feedback">
+        <h2>We Appreciate Your Feedback!</h2>
+        <div id="feedback-container">
+            <form id="feedback-form" method="POST" action="{% url 'feedback' %}">
+                {% csrf_token %}
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                <textarea id="message" name="message" rows="4" placeholder="Your Feedback" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </section>
+    
+    
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="10 0 1440 300"><path fill="#FFEEA9" fill-opacity="1" d="M0,128L80,122.7C160,117,320,107,480,128C640,149,800,203,960,208C1120,213,1280,171,1360,149.3L1440,128L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path></svg>
+    <!-- map -->
+    <section id="map">
+        <h2>Find Us Here</h2>
+        <div id="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3773.5427002994215!2d72.82062267520229!3d18.95162518222752!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ce19913581e7%3A0x85c02373d00f2330!2sShri%20Kalaram%20Mandir%2C%20Thakurdwar!5e0!3m2!1smr!2sin!4v1725013418083!5m2!1smr!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>        </div>
+    </section>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="#FFEEA9"><path d="M0 0v100l500-48 500 48V0H0z" opacity=".5"></path><path d="M0 0h1000v52H0z" opacity=".5"></path><path d="M0 0v4l500 48 500-48V0H0z" opacity=".5"></path><path d="M0 0v4l500 48 500-48V0H0z"></path></svg>
+     
+    
+    
+    <!-- footer -->
+    <section  id="footer" class="footer">
+    <footer>
+
+        <div class="container">
+            <div class="footer-content">
+                <h3>Contact Us</h3>
+                <p>Email: absrammandir@gmail.com</p>
+                <p>Phone: +91 9819001832</p>
+                <p>Address: 309-E, JSS Road, Thakurdwar, Mumbai-400002</p>
+            </div>
+            <div class="footer-content">
+                <h3>Quick Links</h3>
+                <ul class="list">
+                    <li><a href="{% url 'events' %}">Events</a></li>
+                    <li><a href="{% url 'history' %}">History</a></li>
+                    <li><a href="{% url 'gallary' %}">Gallery</a></li>
+                    <li><a href="{% url 'puja' %}">Pooja </a></li>
+                    <li><a href="{% url 'donation' %}">Donation</a></li>
+                </ul>
+            </div>
+            <!-- <div class="footer-content">
+                <h3>Follow Us</h3>
+                <ul class="social-icons">
+                    <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                </ul>
+            </div> -->
+        </div>
+        <div class="bottom-bar">
+            <p>&copy; 2024 Atmaram Bawa's Shree Ram Mandir. All rights reserved.</p>
+            <p>Designed by - Sanjana and Khushi Naik</p>
+        </div>
+    </footer>
+</section> 
+
+
+
+<script>
+    // Scroll to top functionality
+    const scrollToTopButton = document.getElementById("scrollToTop");
+
+window.onscroll = function() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      scrollToTopButton.style.display = "block";
+  } else {
+      scrollToTopButton.style.display = "none";
+  }
+};
+
+scrollToTopButton.onclick = function() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+};
+  </script>
+
+</body>
+</html>

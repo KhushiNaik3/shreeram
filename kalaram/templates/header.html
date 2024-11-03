@@ -1,0 +1,46 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalaram Mandir</title>
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+</head>
+<body>
+
+<!-- Header -->
+<header class="kalaram-header">
+    <div class="kalaram-container">
+        <div class="kalaram-row">
+            <div class="kalaram-logo">
+                <a href="#">
+                    <img src="{% static 'images/logo.png' %}" alt="Logo" class="kalaram-logo-img">
+                    Kalaram Mandir
+                </a>
+            </div>
+            <input type="checkbox" id="kalaram-nav-check">
+            <label for="kalaram-nav-check" class="kalaram-nav-toggler">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <nav class="kalaram-nav">
+                <ul>
+                    <li><a href="/" class="kalaram-active">Home</a></li>
+                    <li><a href="{% url 'events' %}">Events</a></li>
+                    <li><a href="{% url 'history' %}">History</a></li>
+                    <li><a href="{% url 'puja' %}">Pooja & Abhishek</a></li>
+                    <li><a href="#footer">Contact</a></li>
+                    <li><a href="{% url 'donation' %}">Donation</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<!-- header -->
+
+</body>
+</html>

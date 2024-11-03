@@ -1,0 +1,158 @@
+:root {
+    --color-1: #FF7D29;
+    --color-2: #FEFFD2;
+    --color-3: #4A4A4A;
+    --transition: all 0.3s ease-in-out;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.kalaram-header {
+    background-color: var(--color-1);
+    padding: 15px 0;
+    position: relative;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.kalaram-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.kalaram-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.kalaram-logo a {
+    font-size: 28px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+}
+
+.kalaram-logo-img {
+    width: 60px; /* Adjust width as needed */
+    height: auto;
+    margin-right: 10px; /* Space between logo and text */
+    transition: var(--transition);
+}
+
+.kalaram-logo a:hover {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.kalaram-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.kalaram-nav ul li {
+    margin-left: 30px;
+}
+
+.kalaram-nav ul li a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: var(--transition);
+    padding: 10px 0;
+    position: relative;
+}
+
+.kalaram-nav ul li a:hover,
+.kalaram-nav ul li a.kalaram-active {
+    color: #ffffff;
+}
+
+.kalaram-nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #ffffff;
+    transition: var(--transition);
+}
+
+.kalaram-nav ul li a:hover::after,
+.kalaram-nav ul li a.kalaram-active::after {
+    width: 100%;
+}
+
+#kalaram-nav-check,
+.kalaram-nav-toggler {
+    display: none;
+}
+
+@media (max-width: 991px) {
+    .kalaram-nav-toggler {
+        display: block;
+        cursor: pointer;
+    }
+
+    .kalaram-nav-toggler span {
+        display: block;
+        width: 30px;
+        height: 2px;
+        background-color: #ffffff;
+        margin: 6px 0;
+        transition: var(--transition);
+    }
+
+    .kalaram-nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--color-1);
+        max-height: 0;
+        overflow: hidden;
+        transition: var(--transition);
+    }
+
+    .kalaram-nav ul {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .kalaram-nav ul li {
+        margin: 0;
+    }
+
+    .kalaram-nav ul li a {
+        padding: 15px;
+        display: block;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    #kalaram-nav-check:checked ~ .kalaram-nav {
+        max-height: 100vh;
+    }
+
+    #kalaram-nav-check:checked ~ .kalaram-nav-toggler span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    #kalaram-nav-check:checked ~ .kalaram-nav-toggler span:nth-child(2) {
+        opacity: 0;
+    }
+
+    #kalaram-nav-check:checked ~ .kalaram-nav-toggler span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+    }
+}
